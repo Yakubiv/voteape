@@ -10,15 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616083510) do
+ActiveRecord::Schema.define(version: 20170616100714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
     t.text     "content"
+    t.integer  "likes_count",    default: 0
+    t.integer  "dislikes_count", default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "post_id"
+    t.string   "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_votes_on_post_id", using: :btree
+    t.index ["type"], name: "index_votes_on_type", using: :btree
   end
 
 end
