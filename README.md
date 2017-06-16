@@ -1,9 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
 
 * Ruby version
   - You need to intall Ruby 2.4.1
@@ -14,11 +8,11 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
-Run rake db:create 
-and then
-rake db:migrate
+  - rake db:create 
+  - rake db:migrate
 
-To start application on development run rails s
+To start application on development run 
+  - rails s
 
 * Database initialization
 
