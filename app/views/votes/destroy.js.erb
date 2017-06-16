@@ -1,1 +1,1 @@
-$("#post-<%= @post.id %>.counter.dislikes").text("<%= @post.dislikes_count %>")
+$("#post-<%= @post.id %>.counter.dislikes").text("<%= @post.reload.dislikes_count %>")

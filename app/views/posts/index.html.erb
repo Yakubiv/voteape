@@ -3,7 +3,7 @@
   <small class="text-muted"> <%= @posts.count %></small>
 </h4>
 <hr>
-<%= form_for Post.new, remote: true do |f| %>
+<%= form_for Post.new do |f| %>
   <div class="form-group">
     <%= f.text_area :content, rows: 5, placeholder: 'Write Post', class: 'form-control' %>
   </div>
