@@ -3,56 +3,13 @@
   <small class="text-muted"> <%= @posts.count %></small>
 </h4>
 <hr>
-<%= form_for Post.new do |f| %>
-  <div class="form-group">
-    <%= f.text_area :content, rows: 5, placeholder: 'Write Post', class: 'form-control' %>
-  </div>
 
-  <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
-        <%= f.submit 'Save', class: 'btn btn-success btn-block' %>
-      </div>
-    </div>
-  </div>
-<% end %>
+<%= render 'form' %>
 
 <%- if @posts.empty? %>
-  <div class="center text-muted">
+  <div class="text-muted">
     <p>No posts yet</p>
   </div>
 <% else %>
-  <% @posts.each do |post| %>
-    <div class="card m-b">
-      <div class="card-block">
-        <%= post.content %>
-      </div>
-
-      <div class="card-block">
-        <div class="vote">
-          <div class="counter likes" id="post-<%= post.id %>">
-            <%= post.likes_count %>
-          </div>
-          <div class="link">
-            <%= link_to post_votes_path(post), method: :post, remote: true, class: 'text-success' do %>
-              <i class="fa fa-thumbs-up"></i>
-              Good
-            <% end %>
-          </div>
-        </div>
-
-        <div class="vote">
-          <div class="counter dislikes" id="post-<%= post.id %>">
-            <%= post.dislikes_count %>
-          </div>
-          <div class="link">
-            <%= link_to post_votes_path(post), method: :delete, remote: true, class: 'text-danger' do %>
-              <i class="fa fa-thumbs-down"></i>
-              Bad
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  <%- end %>
+  <%= render @posts %>
 <% end %>

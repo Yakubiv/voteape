@@ -1,0 +1,34 @@
+<div class="card m-b">
+  <div class="card-block">
+    <p>
+      <strong><%= post.title %></strong>
+    </p>
+    <%= post.description %>
+  </div>
+
+  <div class="card-block">
+    <div class="vote">
+      <div class="counter likes" id="post-<%= post.id %>">
+        <%= post.likes_count %>
+      </div>
+      <div class="link">
+        <%= link_to post_votes_path(post), method: :post, remote: true, class: 'text-success' do %>
+          <i class="fa fa-thumbs-up"></i>
+          Good
+        <% end %>
+      </div>
+    </div>
+
+    <div class="vote">
+      <div class="counter dislikes" id="post-<%= post.id %>">
+        <%= post.dislikes_count %>
+      </div>
+      <div class="link">
+        <%= link_to post_votes_path(post), method: :delete, remote: true, class: 'text-danger' do %>
+          <i class="fa fa-thumbs-down"></i>
+          Bad
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

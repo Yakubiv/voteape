@@ -16,7 +16,8 @@ ActiveRecord::Schema.define(version: 20170616100714) do
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
-    t.text     "content"
+    t.string   "title"
+    t.text     "description"
     t.integer  "likes_count",    default: 0
     t.integer  "dislikes_count", default: 0
     t.datetime "created_at",                 null: false
