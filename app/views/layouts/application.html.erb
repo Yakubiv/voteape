@@ -9,6 +9,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="app-header">
+        <h2 class="brand-name">Voteape</h2>
+        <div class="pull-right">
+          <%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+
+      <div class="app-content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,1 +1,18 @@
-<h1>Hello</h1>
+<h4 class="m-b">
+  Posts
+  <small class="text-muted"> <%= @posts.count %></small>
+</h4>
+
+<% @posts.each do |post| %>
+  <div class="card m-b">
+    <div class="card-block">
+      <p class="">
+        <strong><%= post.title %></strong>
+      </p>
+      <%= post.content %>
+    </div>
+    <div class="card-footer text-muted">
+      votes
+    </div>
+  </div>
+<%- end %>
